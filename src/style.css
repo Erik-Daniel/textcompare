@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(40, 43, 44);
+    color: white;
+}
+h1 {
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+
+textarea {
+    width: 30vw;
+    height: 75vh;
+    overflow: auto;
+    resize: none;
+    background-color: rgb(140, 142, 143);
+    outline: none;
+}
+.text {
+    width: 30vw;
+    height: 75vh;
+    background-color: rgb(140, 142, 143);
+    color: black;
+    outline: 0;
+    padding: 2px;
+    margin: 0;
+    line-height: 25px;
+    text-align: justify;
+    overflow: auto;
+    font-family: monospace;
+
+}
