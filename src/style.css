@@ -6,19 +6,74 @@ h1 {
     text-align: center;
 }
 .container {
+}
+.subContainer {
+    position: relative;
     display: flex;
     justify-content: center;
-    gap: 2vw;
 }
 
+.secondTextArea {
+    position: absolute;
+    z-index: 1;
+    width: 30vw;
+    height: 75vh;
+    margin: 0;
+    border-radius: 0;
+    padding: 2px;
+    resize: none;
+    outline: none;
+    font-size: 1em;
+    border: 0;
+
+}
 textarea {
+    margin: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: black;
+}
+.back {
+    position: absolute;
+    z-index: 0;
     width: 30vw;
     height: 75vh;
     overflow: auto;
-    resize: none;
+    padding: 2px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     background-color: rgb(140, 142, 143);
-    outline: none;
 }
+.firstTextArea {
+    width: 30vw;
+    height: 75vh;
+    border-radius: 0;
+    border: 0;
+    resize: none;
+    padding: 2px;
+    margin: 0;
+    outline: 0;
+    background-color: rgb(140, 142, 143);
+}
+.highlights {
+    height: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: transparent;
+    letter-spacing: normal;
+    font-family: monospace;
+
+}
+
+mark {
+    font-family: monospace;
+    letter-spacing: normal;
+    color: transparent;
+    background-color: yellow;
+    padding: 0px;
+}
+
+/* 
 .text {
     width: 30vw;
     height: 75vh;
@@ -32,4 +87,4 @@ textarea {
     overflow: auto;
     font-family: monospace;
 
-}
+} */
