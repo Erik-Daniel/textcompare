@@ -19,6 +19,8 @@ h1 {
     width: 30vw;
     height: 75vh;
     margin: 0;
+    left: 55%;
+
     border-radius: 0;
     padding: 2px;
     resize: none;
@@ -40,11 +42,15 @@ textarea {
     height: 75vh;
     overflow: auto;
     padding: 2px;
+    left: 55%;
+
     white-space: pre-wrap;
     word-wrap: break-word;
     background-color: rgb(140, 142, 143);
 }
 .firstTextArea {
+    position: absolute;
+    left: 15%;
     width: 30vw;
     height: 75vh;
     border-radius: 0;
@@ -60,6 +66,9 @@ textarea {
     white-space: pre-wrap;
     word-wrap: break-word;
     color: transparent;
+    left: 55%;
+
+
     letter-spacing: normal;
     font-family: monospace;
 
@@ -88,3 +97,7 @@ mark {
     font-family: monospace;
 
 } */
+
+.difference {
+    text-align: center;
+}

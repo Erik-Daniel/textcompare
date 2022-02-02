@@ -1,0 +1,74 @@
+.switchOn {
+    width: 40px;
+    height: 15px;
+    padding: 3px;
+    background-color: aqua ;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    animation-name: switch-on;
+    animation-duration: 0.5s;
+}
+.switchOff{
+    width: 40px;
+    height: 15px;
+    padding: 3px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    animation-name: switch-off;
+    animation-duration: 0.5s;
+}
+div:hover {
+    cursor: pointer;
+}
+input {
+    display: none;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.sliderRight {
+    width: 35%;
+    height: 90%;
+    background-color: black;
+    margin-left: 60%;
+    border-radius: 50%;
+    
+    animation-name: slide-Right;
+    animation-duration: 0.5s;
+}
+.sliderLeft{
+    width: 35%;
+    height: 90%;
+    border-radius: 50%;
+    background-color: black;
+    animation-name: slide-Left;
+    animation-duration: 0.5s;
+    margin-left: 5%;
+}
+
+@keyframes slide-Left {
+    from {margin-left: 60%;}
+    to { margin-left: 5%;}
+}
+
+
+@keyframes slide-Right {
+    from {margin-left: 5%;}
+    to { margin-left: 60%;}
+}
+
+
+@keyframes switch-on {
+    from {background-color: gray;}
+    to {background-color: aqua;}
+}
+
+
+@keyframes switch-off {
+    from {background-color: aqua;}
+    to {background-color: gray;}
+}
