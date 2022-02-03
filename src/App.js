@@ -20,26 +20,8 @@ function App() {
 
 
   function handleInput() {
-    // let firstText = getFirstText;
-    // let secondText = text.target.value.toString();
-
-    // console.log(getFirstText);
-
-      // let finalText = "";
       diff += 1;
-      // for(let i = 0; i < secondText.length; i++){
-      //     if(secondText.charAt(i) !== firstText.charAt(i)){
-      //       finalText =  finalText + "<mark>" + secondText.charAt(i) + "</mark>";
-      //       diff += 1;
-      //     }
-      //     else {
-      //       finalText = finalText + secondText.charAt(i)
-      //     }
-      //   }
         setDiffRate(diff)
-      //   ReactDOM.render(finalText,document.getElementById("highlight"))
-       
-
   }
 
 
@@ -50,30 +32,64 @@ function App() {
       firstText = firstText.toLowerCase();
       secondText = getSecondText.toLowerCase();
     }
-    if(!getTrim){
-      firstText = firstText.replace(/ /g, '');
-      // secondText = secondText.replace(/ /g, '');
-    }
+   
     let element;
-    for(let i = 0; i < secondText.length; i++){
-      
     
+    let i = 0;
+    let z = 0;
+    while(i < secondText.length){
+      if(getTrim){
         if(secondText.charAt(i) !== firstText.charAt(i)){
             element =  <>{element}<mark>{secondText.charAt(i)}</mark></>       
-        }
+            diff += 1;
+          }
+
         else {
           element =  <>{element}{secondText.charAt(i)}</>          
         }
       }
+      else {
+    
+        while(firstText.charAt(z) === " "){
+          z +=1;      
+
+        }
+        while(secondText.charAt(i) === " "){
+          i += 1
+          element =  <>{element}{secondText.charAt(i)}</>          
+          
+          
+        }
+          
+          if(secondText.charAt(i) !== firstText.charAt(z)){
+              element =  <>{element}<mark>{secondText.charAt(i)}</mark></>     
+              console.log("Z ON THIS POINT " + z);
+              console.log("I ON THIS POINT " + i);  
+            diff += 1;
+
+
+          }
+          else {
+            element =  <>{element}{secondText.charAt(i)}</>          
+          }
+        
+        
+      }
+      console.log("i " + i);
+      console.log("z " + z)
+      z++
+      i++
+    }
+      
     
     
-    return element;
+    return [element,diff];
   }
   return (
     <div className="App">
       <h1>Text Compare</h1>
       <div className='container'>
-        <h2 className='difference'>Difference  {diff}</h2>
+        <h2 className='difference'>Difference {calculate()[1]} </h2>
         <div className='switches'>
           <label>check Whitespace</label>
           <Switch flipSwitch={(getTrim) => setTrim(getTrim)} defaultValue={getTrim}></Switch>
@@ -84,7 +100,7 @@ function App() {
         <div className='subContainer'>
           <div className='back'>
             <div id='highlight' className="highlights">
-                {calculate()}
+                {calculate()[0]}
             </div>
           </div>
           <textarea className='secondTextArea' onChange={(e) => {setSecondText(e.target.value)}} onScroll={(e) => handleScrollTop(e)} value={getSecondText}></textarea>
