@@ -20,7 +20,10 @@
     animation-name: switch-off;
     animation-duration: 0.5s;
 }
-div:hover {
+.switchOff:hover {
+    cursor: pointer;
+}
+.switchOn:hover {
     cursor: pointer;
 }
 input {
