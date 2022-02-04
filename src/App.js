@@ -1,28 +1,15 @@
 import "./style.css"
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Switch from "./Switch";
 function App() {
   const [getFirstText, setFirstText] = useState("");
   const [getSecondText, setSecondText] = useState("");
-  const [getDiffRate, setDiffRate] = useState(0)
   const [getTrim, setTrim] = useState(true)
   const [getCapital, setCapital] = useState(false);  
-  let trimState = {switch: false}
+  const backRef = useRef(null)
   let diff = 0;
-  function handleScrollTop(e) {
-    console.log(e.target)
-    let back = document.getElementsByClassName("back");
-    let scroll = e.target.scrollTop;
-    
-    back[0].scrollTop = scroll;
-  }
 
 
-
-  function handleInput() {
-      diff += 1;
-        setDiffRate(diff)
-  }
 
 
   function calculate() {
@@ -55,16 +42,16 @@ function App() {
 
         }
         while(secondText.charAt(i) === " "){
-          i += 1
           element =  <>{element}{secondText.charAt(i)}</>          
+          
+          i += 1
           
           
         }
           
           if(secondText.charAt(i) !== firstText.charAt(z)){
               element =  <>{element}<mark>{secondText.charAt(i)}</mark></>     
-              console.log("Z ON THIS POINT " + z);
-              console.log("I ON THIS POINT " + i);  
+            
             diff += 1;
 
 
@@ -75,8 +62,6 @@ function App() {
         
         
       }
-      console.log("i " + i);
-      console.log("z " + z)
       z++
       i++
     }
@@ -91,21 +76,21 @@ function App() {
       <div className='container'>
         <h2 className='difference'>Difference {calculate()[1]} </h2>
         <div className='switches'>
-          <label>check Whitespace</label>
+          <label>Find WhiteSpace</label>
           <Switch flipSwitch={(getTrim) => setTrim(getTrim)} defaultValue={getTrim}></Switch>
-          <label>check Capital Case</label>
+          <label>Find CapitalCase</label>
 
           <Switch flipSwitch={(getCapital) => setCapital(getCapital)} defaultValue={getCapital}></Switch>
         </div>
         <div className='subContainer'>
-          <div className='back'>
-            <div id='highlight' className="highlights">
+          <div className='back' ref={backRef}>
+            <div spellCheck="false" className="highlights">
                 {calculate()[0]}
             </div>
           </div>
-          <textarea className='secondTextArea' onChange={(e) => {setSecondText(e.target.value)}} onScroll={(e) => handleScrollTop(e)} value={getSecondText}></textarea>
+          <textarea  spellCheck="false" className='secondTextArea' onChange={(e) => {setSecondText(e.target.value)}} onScroll={(e) => {backRef.current.scrollTop = e.target.scrollTop}} value={getSecondText} placeholder="Place Text To Compare Here..."></textarea>
         </div>
-        <textarea className='firstTextArea' onChange={(e) => {setFirstText(e.target.value)}} value={getFirstText}></textarea>
+        <textarea   spellCheck="false" className='firstTextArea' onChange={(e) => {setFirstText(e.target.value)}} value={getFirstText} placeholder="Place Original Text Here..."></textarea>
       </div>
 
     </div>

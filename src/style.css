@@ -9,13 +9,14 @@ h1 {
     position: relative;
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .secondTextArea {
     position: absolute;
     z-index: 1;
     width: 30vw;
-    height: 75vh;
+    height: 70vh;
     margin: 0;
     left: 55%;
 
@@ -37,7 +38,7 @@ textarea {
     position: absolute;
     z-index: 0;
     width: 30vw;
-    height: 75vh;
+    height: 70vh;
     overflow: auto;
     padding: 2px;
     left: 55%;
@@ -50,11 +51,13 @@ textarea {
     position: absolute;
     left: 15%;
     width: 30vw;
-    height: 75vh;
+    height: 70vh;
     border-radius: 0;
     border: 0;
     resize: none;
     padding: 2px;
+    text-decoration: none;
+
     margin: 0;
     outline: 0;
     background-color: rgb(140, 142, 143);
@@ -65,8 +68,7 @@ textarea {
     word-wrap: break-word;
     color: transparent;
     left: 55%;
-
-
+    text-align: justify;
     letter-spacing: normal;
     font-family: monospace;
 
@@ -78,23 +80,9 @@ mark {
     color: transparent;
     background-color: yellow;
     padding: 0px;
+
 }
 
-/* 
-.text {
-    width: 30vw;
-    height: 75vh;
-    background-color: rgb(140, 142, 143);
-    color: black;
-    outline: 0;
-    padding: 2px;
-    margin: 0;
-    line-height: 25px;
-    text-align: justify;
-    overflow: auto;
-    font-family: monospace;
-
-} */
 
 .difference {
     text-align: center;
